@@ -259,9 +259,7 @@ class ApiClient<R extends RawApi> {
             },
             canUseWebhookReply: options.canUseWebhookReply ?? (() => false),
             sensitiveLogs: options.sensitiveLogs ?? false,
-            fetch:
-                ((...args: Parameters<typeof fetch>) =>
-                    fetchFn(...args)) as typeof fetch,
+            fetch:fetch,
         };
         this.fetch = this.options.fetch;
         if (this.options.apiRoot.endsWith("/")) {
